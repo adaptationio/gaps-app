@@ -3,148 +3,412 @@
 <html lang="en" data-appstore="soon">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get Dr. Natasha's GAPS App</title>
-<meta name="description" content="Your GAPS diet, day by day: a daily journal, every food's stage, recipes for your stage and the patterns in your own journal. On iPhone, Android early access, or in your browser.">
-<meta name="theme-color" content="#007848">
-<meta property="og:title" content="Dr. Natasha's GAPS App">
-<meta property="og:description" content="Your GAPS diet, day by day. On iPhone, Android early access, or in your browser.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr. Natasha's GAPS App · Your GAPS diet, day by day</title>
+<meta name="description" content="Dr. Natasha's GAPS App: a daily GAPS journal, every food's stage, recipes for your stage and the patterns in your own journal. On iPhone, Android early access, or in any browser.">
+<link rel="canonical" href="https://adaptationio.github.io/gaps-app/">
+<meta name="theme-color" content="#007848" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1A14" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
 <meta property="og:type" content="website">
+<meta property="og:site_name" content="Dr. Natasha's GAPS App">
+<meta property="og:title" content="Dr. Natasha's GAPS App">
+<meta property="og:description" content="Your GAPS diet, day by day. On iPhone, Android early access, or in any browser.">
 <meta property="og:url" content="https://adaptationio.github.io/gaps-app/">
 <meta property="og:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Dr. Natasha's GAPS App logo with the words: Your GAPS diet, day by day.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dr. Natasha's GAPS App">
+<meta name="twitter:description" content="Your GAPS diet, day by day. On iPhone, Android early access, or in any browser.">
+<meta name="twitter:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/kit-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/inter-regular.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Kit Serif";src:url(assets/kit-serif-bold.woff2) format("woff2");font-weight:700;font-display:swap}
 @font-face{font-family:"Inter";src:url(assets/inter-regular.woff2) format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Inter";src:url(assets/inter-medium.woff2) format("woff2");font-weight:500 700;font-display:swap}
-:root{--teal:#007848;--teal-deep:#00492C;--gold:#B98A0A;--gold-soft:#E9D9A6;--cream:#FBF7F1;--ink:#14231B;--muted:#4B5A52;--card:#fff;--line:#E6DFD3}
+
+/* Brand tokens: docs/BRANDING.md (teal #007848, gold #B98A0A, TeX Gyre Bonum headings) */
+:root{
+  --teal:#007848;--teal-deep:#00492C;--gold:#B98A0A;--gold-ink:#7E5D05;--gold-soft:#E9D9A6;
+  --bg:#FBF7F1;--bg-alt:#F3ECE1;--card:#FFFFFF;--ink:#14231B;--muted:#4B5A52;--line:#E6DFD3;
+  --hero-ink:#FFFFFF;--hero-sub:#E3F0E8;--btn:#007848;--btn-ink:#FFFFFF;--chip:#EAF3EE;--shadow:rgba(0,60,36,.30);
+  --step:#8A6606;
+  --hero-bg:linear-gradient(160deg,#00492C 0%,#007848 62%,#0B8A57 100%);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0E1A14;--bg-alt:#12221A;--card:#16271E;--ink:#ECF3EE;--muted:#A9BDB1;--line:#24392D;
+    --teal-deep:#7FD3A8;--gold-ink:#E3C46A;--gold-soft:#5A4A1C;--btn:#2FA36B;--btn-ink:#06140D;--chip:#1C3326;--shadow:rgba(0,0,0,.55);
+    --step:#8A6606;
+    --hero-bg:linear-gradient(160deg,#03291A 0%,#00492C 60%,#0A5F3C 100%);
+  }
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{font:400 17px/1.5 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased}
-a{color:var(--teal-deep)}
-h1,h2{font-family:"Kit Serif",Georgia,serif;font-weight:700;color:var(--teal-deep);line-height:1.12;letter-spacing:-.01em}
-.band{height:clamp(110px,30vw,240px);background:url(assets/blossom-800.webp) center/cover}
-@media (min-width:801px){.band{background-image:url(assets/blossom-1600.webp)}}
-.wrap{max-width:640px;margin:0 auto;padding:0 16px}
-header.hero{margin-top:-46px;text-align:center}
-.badge{width:92px;height:92px;border-radius:50%;background:#fff;box-shadow:0 6px 20px -8px rgba(0,60,36,.45);display:block;margin:0 auto 14px}
-.name{font:500 13px/1 Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-h1{font-size:clamp(30px,8vw,42px);margin:10px 0 10px}
-.lede{color:var(--muted);max-width:30em;margin:0 auto}
-.price{margin:18px auto 0;background:#fff;border:1px solid var(--gold-soft);border-radius:14px;padding:12px 16px;max-width:30em;font-size:15.5px}
-.price b{color:var(--teal-deep)}
-nav.pick{display:flex;gap:8px;justify-content:center;margin:26px 0 6px;flex-wrap:wrap}
-nav.pick a{font:500 15px/1 Inter,sans-serif;text-decoration:none;color:var(--teal-deep);border:1.5px solid var(--teal);border-radius:999px;padding:12px 16px;min-height:44px;display:inline-flex;align-items:center}
-main{display:flex;flex-direction:column;gap:16px;margin:18px 0 8px}
-section.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px 18px;scroll-margin-top:12px}
-section.card.mine{border:2px solid var(--teal);box-shadow:0 10px 30px -18px rgba(0,73,44,.55)}
-.mine-tag{display:none;font:500 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:6px 10px;margin-bottom:10px;width:max-content}
-.mine .mine-tag{display:block}
-h2{font-size:25px;margin-bottom:6px}
-.sub{color:var(--muted);font-size:15.5px;margin-bottom:14px}
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 18px;border-radius:14px;background:var(--teal);color:#fff;text-decoration:none;font:500 17px/1.2 Inter,sans-serif;text-align:center}
-.btn:active{background:var(--teal-deep)}
-.btn.ghost{background:#fff;color:var(--teal-deep);border:1.5px solid var(--teal)}
-.appstore{display:inline-block;padding:13px 0}  /* clear space >= 1/4 badge height (Apple) */
-.appstore img{height:52px;width:auto;display:block}
-.soon{background:#F6F1E6;border-radius:12px;padding:12px 14px;font-size:15.5px}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font:400 17px/1.55 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--teal-deep);text-underline-offset:3px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:-999px;top:8px;background:var(--card);color:var(--ink);padding:10px 14px;border-radius:10px;z-index:10}
+.skip:focus{left:16px}
+h1,h2,h3{font-family:"Kit Serif",Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.012em;line-height:1.08}
+.wrap{max-width:1120px;margin:0 auto;padding:0 16px}
+.eyebrow{font:500 13px/1.2 Inter,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--hero-bg);color:var(--hero-ink);overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;background:url(assets/blossom-800.webp) center/cover;opacity:.16;mix-blend-mode:screen;z-index:-1}
+@media (min-width:801px){.hero::before{background-image:url(assets/blossom-1600.webp)}}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:70px;background:var(--bg);clip-path:ellipse(75% 100% at 50% 100%);z-index:-1}
+.hero-grid{display:grid;gap:28px;padding-top:22px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;color:inherit}
+.brand img{width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:0 4px 14px -6px rgba(0,0,0,.5)}
+.brand span{font:700 18px/1.1 "Kit Serif",Georgia,serif}
+.hero-copy{padding-top:18px}
+.hero .eyebrow{color:#F3E2A9}
+.hero h1{font-size:clamp(40px,10.5vw,68px);margin:12px 0 16px}
+.hero h1 em{font-style:normal;color:#F3E2A9}
+.lede{font-size:clamp(17px,2.4vw,20px);color:var(--hero-sub);max-width:31em}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:13px 22px;border-radius:14px;background:var(--btn);color:var(--btn-ink);text-decoration:none;font:500 17px/1.2 Inter,sans-serif;text-align:center;transition:transform .15s ease,box-shadow .15s ease}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 24px -12px var(--shadow)}
+.btn.light{background:#fff;color:#00492C}
+.btn.outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.75)}
+.btn.ghost{background:transparent;color:var(--teal-deep);border:1.5px solid currentColor}
+.btn.block{display:flex;width:100%}
+.hero-note{margin-top:14px;font-size:14.5px;color:var(--hero-sub)}
+.hero-art{position:relative;height:clamp(400px,118vw,580px);margin:0 auto;width:100%;max-width:560px}
+
+/* generic phone frame, drawn in CSS (not a manufacturer's artwork) */
+.phone{--w:230px;position:absolute;width:var(--w);aspect-ratio:430/932;border-radius:calc(var(--w)*.14);background:#0E1512;padding:calc(var(--w)*.032);box-shadow:0 40px 70px -28px rgba(0,0,0,.6),0 0 0 2px #2A3530 inset}
+.phone .scr{position:relative;height:100%;border-radius:calc(var(--w)*.11);overflow:hidden;background:var(--top,#fff);display:flex;flex-direction:column}
+.phone .scr::before{content:"";flex:none;height:6.2%;background:var(--top,#fff)}
+.phone .scr picture{flex:1;min-height:0;display:block}
+.phone .scr img{flex:1;min-height:0;width:100%;height:100%;object-fit:cover;object-position:top}
+.phone .isl{position:absolute;z-index:2;top:calc(var(--w)*.055);left:50%;transform:translateX(-50%);width:30%;height:3.1%;background:#000;border-radius:999px}
+.hero-art .p1{--w:min(62vw,270px);left:50%;top:0;transform:translateX(-50%);z-index:3}
+.hero-art .p2,.hero-art .p3{--w:min(46vw,210px);top:16%;z-index:2;opacity:.96}
+.hero-art .p2{left:0;transform:rotate(-7deg)}
+.hero-art .p3{right:0;transform:rotate(7deg)}
+
+/* ---------- sections ---------- */
+section{padding:56px 0}
+.sec-head{max-width:640px;margin:0 auto 30px;text-align:center}
+.sec-head .eyebrow{color:var(--gold-ink)}
+.sec-head h2{font-size:clamp(30px,6.5vw,46px);color:var(--teal-deep);margin:10px 0 10px}
+.sec-head p{color:var(--muted)}
+
+/* device picker */
+.devices{display:grid;gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 20px;scroll-margin-top:16px;position:relative}
+.card.mine{border:2px solid var(--teal);box-shadow:0 18px 40px -26px var(--shadow)}
+.tag{display:none;position:absolute;top:-12px;left:18px;font:500 12px/1 Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--teal);border-radius:999px;padding:7px 11px}
+.mine .tag{display:block}
+.card h3{font-size:26px;color:var(--teal-deep);margin:4px 0 8px;display:flex;align-items:center;gap:10px}
+.card h3 svg{width:26px;height:26px;flex:none}
+.card .sub{color:var(--muted);font-size:15.5px;margin-bottom:16px}
+.appstore{display:inline-block;padding:13px 0}  /* Apple: clear space >= 1/4 of badge height */
+.appstore img{height:54px;width:auto}
+.soon{background:var(--chip);border-radius:12px;padding:12px 14px;font-size:15.5px;margin-bottom:14px}
 html[data-appstore="soon"] .when-live{display:none}
 html[data-appstore="live"] .when-soon{display:none}
-ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:12px}
-ol.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:4px 12px;align-items:start}
-ol.steps li::before{content:counter(s);grid-row:span 2;width:34px;height:34px;border-radius:50%;background:var(--gold);color:#fff;font:700 17px/34px Inter,sans-serif;text-align:center}
+ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:14px}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:6px 12px;align-items:center}
+ol.steps li::before{content:counter(s);grid-row:span 2;align-self:start;margin-top:9px;width:34px;height:34px;border-radius:50%;background:var(--step);color:#fff;font:700 17px/34px Inter,sans-serif;text-align:center}
 ol.steps .hint{font-size:14.5px;color:var(--muted)}
-ul.notes{margin:16px 0 0 18px;font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+ul.notes{margin:18px 0 0 18px;font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 ul.notes b{color:var(--ink)}
-.feat{margin:8px 0 0 0;list-style:none;display:flex;flex-direction:column;gap:8px}
-.feat li{padding-left:26px;position:relative}
-.feat li::before{content:"";position:absolute;left:4px;top:.55em;width:9px;height:9px;border-radius:50%;background:var(--gold)}
-footer{padding:22px 0 40px;text-align:center;font-size:14px;color:var(--muted)}
+
+/* features */
+.features{display:flex;flex-direction:column;gap:56px}
+.feat{display:grid;gap:26px;align-items:center}
+.feat .shot{--pw:min(64vw,258px);position:relative;height:calc(var(--pw) * 2.1674 + 8px)}
+.feat .shot .phone{--w:var(--pw);left:50%;top:0;transform:translateX(-50%)}
+.feat .shot::before{content:"";position:absolute;left:50%;top:12%;width:min(84vw,360px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 50% 50%,var(--gold-soft) 0%,transparent 68%);opacity:.75}
+.feat .txt .eyebrow{color:var(--gold-ink)}
+.feat h3{font-size:clamp(28px,5.6vw,38px);color:var(--teal-deep);margin:10px 0 12px}
+.feat p{color:var(--muted);font-size:17.5px;max-width:28em}
+.more{display:grid;gap:14px;margin-top:56px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px}
+.mini h3{font-size:22px;color:var(--teal-deep);margin-bottom:6px}
+.mini p{color:var(--muted);font-size:15.5px}
+
+/* pricing */
+.alt{background:var(--bg-alt)}
+.plans{display:grid;gap:22px;max-width:760px;margin:0 auto}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:24px 22px;position:relative}
+.plan.best{border:2px solid var(--gold)}
+.plan .ribbon{position:absolute;top:-12px;right:18px;background:var(--step);color:#fff;font:500 12px/1 Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;padding:7px 11px;border-radius:999px}
+.plan h3{font-size:22px;color:var(--teal-deep)}
+.plan .amt{font:700 44px/1 "Kit Serif",Georgia,serif;color:var(--ink);margin:12px 0 4px}
+.plan .amt small{font:400 16px Inter,sans-serif;color:var(--muted)}
+.plan ul{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:6px;font-size:15.5px;color:var(--muted)}
+.plan li::before{content:"✓";color:var(--teal-deep);font-weight:700;margin-right:8px}
+.fine{max-width:760px;margin:18px auto 0;font-size:14px;color:var(--muted);text-align:center}
+
+/* trust */
+.trust{display:grid;gap:16px}
+.trust .card h3{font-size:24px}
+.trust .card p{color:var(--muted)}
+.trust .note{border-left:5px solid var(--gold)}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:0 18px}
+summary{list-style:none;cursor:pointer;padding:17px 34px 17px 0;font-weight:500;position:relative;min-height:44px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:4px;top:50%;width:10px;height:10px;border-right:2px solid var(--teal-deep);border-bottom:2px solid var(--teal-deep);transform:translateY(-70%) rotate(45deg);transition:transform .2s ease}
+details[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details p{padding:0 0 18px;color:var(--muted)}
+
+/* footer */
+footer{padding:40px 0 52px;text-align:center;font-size:14.5px;color:var(--muted);border-top:1px solid var(--line)}
+footer .brand{color:var(--ink);margin-bottom:14px}
 footer p+p{margin-top:8px}
+
+/* ---------- larger screens ---------- */
+@media (min-width:768px){
+  body{font-size:18px}
+  .plans{grid-template-columns:1fr 1fr}
+  .trust{grid-template-columns:1fr 1fr}
+  .more{grid-template-columns:1fr 1fr}
+  .devices{grid-template-columns:1fr 1fr;align-items:start}
+  .devices #android{grid-column:1 / -1}
+}
+@media (min-width:1024px){
+  .devices{grid-template-columns:1fr 1.25fr 1fr}
+  .devices #android{grid-column:auto}
+  .hero-grid{grid-template-columns:1.05fr .95fr;align-items:center;padding-top:26px;padding-bottom:40px}
+  .hero-copy{padding:40px 0 70px}
+  .hero-art{height:600px}
+  .hero-art .p1{--w:290px}
+  .hero-art .p2,.hero-art .p3{--w:220px}
+  .feat{grid-template-columns:1fr 1fr;gap:56px}
+  .feat:nth-child(even) .shot{order:2}
+  .feat .shot{--pw:290px}
+  section{padding:84px 0}
+}
+
+/* ---------- motion (purposeful, and off for reduced motion) ----------
+   The headline and main phone never start invisible: they are the first paint. */
+@media (prefers-reduced-motion:no-preference){
+  .hero-art .p1{animation:rise .9s cubic-bezier(.2,.7,.2,1) both .1s}
+  .hero-art .p2{animation:rise-l 1s cubic-bezier(.2,.7,.2,1) both .3s}
+  .hero-art .p3{animation:rise-r 1s cubic-bezier(.2,.7,.2,1) both .4s}
+  .hero-copy>*{animation:fade .7s ease both}
+  .hero-copy>*:nth-child(2){animation-delay:.08s}.hero-copy>*:nth-child(3){animation-delay:.16s}
+  .hero-copy>*:nth-child(4){animation-delay:.24s}.hero-copy>*:nth-child(5){animation-delay:.32s}
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+}
+@keyframes rise{from{transform:translate(-50%,40px)}to{transform:translate(-50%,0)}}
+@keyframes rise-l{from{opacity:0;transform:translateX(30px) rotate(0)}to{opacity:.96;transform:rotate(-7deg)}}
+@keyframes rise-r{from{opacity:0;transform:translateX(-30px) rotate(0)}to{opacity:.96;transform:rotate(7deg)}}
+@keyframes fade{from{transform:translateY(12px)}to{transform:none}}
 </style>
 </head>
 <body>
-<div class="band" role="img" aria-label="Peach blossom"></div>
-<div class="wrap">
+<a class="skip" href="#get">Skip to getting the app</a>
+
 <header class="hero">
-  <img class="badge" src="assets/icon-192.png" width="92" height="92" alt="Dr. Natasha's GAPS App logo">
-  <p class="name">Dr. Natasha's GAPS App</p>
-  <h1>Your GAPS diet, day by day.</h1>
-  <p class="lede">Your daily journal, every food's stage, recipes for your stage and the patterns in your own journal, all in one app.</p>
-  <p class="price">On the App Store: start with a <b>14-day free trial</b> on the monthly plan, then <b>$9.99/month</b>, or <b>$59.99/year</b> (save 50%).</p>
-  <!-- BROWSER/EARLY-ACCESS PRICING LINE: held pending a decision; never print a price beside a channel that cannot charge. -->
-  <nav class="pick" aria-label="Choose your device">
-    <a href="#iphone">iPhone</a><a href="#android">Android</a><a href="#browser">Any device</a>
-  </nav>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <a class="brand" href="./"><img src="assets/icon-192.png" width="48" height="48" alt=""><span>Dr. Natasha's GAPS App</span></a>
+      <p class="eyebrow" style="margin-top:34px">The GAPS Nutritional Protocol, in your pocket</p>
+      <h1>Your GAPS diet, <em>day by day.</em></h1>
+      <p class="lede">A daily journal for your GAPS day, every food's stage at a glance, recipes for your stage and the patterns in your own journal, all in one app.</p>
+      <div class="cta-row">
+        <a class="btn light" href="#get" id="hero-cta">Get the app</a>
+        <a class="btn outline" href="#inside">See what's inside</a>
+      </div>
+      <p class="hero-note">On iPhone, Android early access, or in any browser.</p>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <div class="phone p2" style="--top:#007848"><div class="isl"></div><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
+      <div class="phone p3" style="--top:#77D1F6"><div class="isl"></div><div class="scr"><img src="assets/screens/recipes-430.webp" srcset="assets/screens/recipes-430.webp 430w, assets/screens/recipes-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
+      <div class="phone p1" style="--top:#FFFFFF"><div class="isl"></div><div class="scr"><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="290px" width="430" height="932" alt="" fetchpriority="high"></div></div>
+    </div>
+  </div>
 </header>
 
 <main>
-<section class="card" id="iphone" data-os="ios">
-  <p class="mine-tag">Your device</p>
-  <h2>On iPhone</h2>
-  <div class="when-live">
-    <p class="sub">Download it free from the App Store, then start your trial in the app.</p>
-    <a class="appstore" href="https://apps.apple.com/app/id6760324388"><img src="assets/app-store-badge.svg" width="156" height="52" alt="Download on the App Store"></a>
+<section id="get" aria-labelledby="get-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Get the app</p>
+      <h2 id="get-h">Pick your device</h2>
+      <p>Your own device comes first. Every option stays here.</p>
+    </div>
+    <div class="devices">
+      <article class="card" id="iphone" data-os="ios">
+        <p class="tag">Your device</p>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="4.2" width="4" height="1.3" rx=".6" fill="currentColor"/></svg>On iPhone</h3>
+        <div class="when-live">
+          <p class="sub">Download it from the App Store, then start your free trial in the app.</p>
+          <a class="appstore" href="https://apps.apple.com/app/id6760324388"><img src="assets/app-store-badge.svg" width="160" height="54" alt="Download on the App Store"></a>
+        </div>
+        <div class="when-soon">
+          <p class="soon"><b>Coming to the App Store in the next few days.</b> Until then, use it in your browser on your iPhone, and later sign in to the app with the same account.</p>
+          <a class="btn ghost block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
+        </div>
+      </article>
+
+      <article class="card" id="android" data-os="android">
+        <p class="tag">Your device</p>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="4.6" r=".9" fill="currentColor"/></svg>On Android: early access</h3>
+        <p class="sub">The Android app is in early access on Google Play. Three steps, each with your Google account. Use the <b>same</b> account that's signed in to Google Play on your phone.</p>
+        <ol class="steps">
+          <li><a class="btn block" href="https://groups.google.com/g/gaps-app-testers">Join the tester group</a><span class="hint">Sign in, then tap “Join group”.</span></li>
+          <li><a class="btn block" href="https://play.google.com/apps/testing/com.gapsapp.app">Become a tester</a><span class="hint">Tap “Become a tester”. Works only after step 1.</span></li>
+          <li><a class="btn block" href="https://play.google.com/store/apps/details?id=com.gapsapp.app">Install the app</a><span class="hint">Works only after steps 1 and 2, give it a few minutes. Before that, Google Play says “not found”.</span></li>
+        </ol>
+        <ul class="notes">
+          <li>Needs Android 7.0 or newer.</li>
+          <li><b>Please stay opted in for at least two weeks.</b> That's what lets us release the Android app to everyone.</li>
+          <li>The group only gives you access to the test. There's no discussion, members can't see each other, and only the group's managers see email addresses.</li>
+        </ul>
+      </article>
+
+      <article class="card" id="browser" data-os="other">
+        <p class="tag">Your device</p>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 20.5h8M12 17v3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Any phone or computer</h3>
+        <p class="sub">Use the app in your web browser, right now. Nothing to install.</p>
+        <a class="btn block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
+      </article>
+    </div>
   </div>
-  <div class="when-soon">
-    <p class="soon"><b>Coming to the App Store in the next few days.</b> Until then, use it in your browser on your iPhone. Later, sign in to the app with the same account.</p>
-    <p style="margin-top:12px"><a class="btn ghost" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a></p>
+</section>
+
+<section id="inside" aria-labelledby="inside-h" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">What's inside</p>
+      <h2 id="inside-h">Everything for your GAPS day</h2>
+      <p>Real screens from the app.</p>
+    </div>
+    <div class="features">
+      <div class="feat reveal">
+        <div class="shot"><div class="phone" style="--top:#FFFFFF"><div class="isl"></div><div class="scr"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screens/journal-dark-430.webp 430w, assets/screens/journal-dark-860.webp 860w" sizes="280px"><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The app's daily journal: today's summary of meat stock, meals and foods, then the day's meals, starting with breakfast."></picture></div></div></div>
+        <div class="txt"><p class="eyebrow">Daily journal</p><h3>Your GAPS day, in one place</h3><p>Log meals, supplements, symptoms, bowel movements and detox, day by day, and look back whenever you need to.</p></div>
+      </div>
+      <div class="feat reveal">
+        <div class="shot"><div class="phone" style="--top:#007848"><div class="isl"></div><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="Food search results for “cooked”, each food labelled with its GAPS stage."></div></div></div>
+        <div class="txt"><p class="eyebrow">Food search</p><h3>Know every food's stage</h3><p>Search a food and see which GAPS stage it belongs to, so you know what fits where you are.</p></div>
+      </div>
+      <div class="feat reveal">
+        <div class="shot"><div class="phone" style="--top:#EDE6DA"><div class="isl"></div><div class="scr"><img src="assets/screens/recipe-detail-430.webp" srcset="assets/screens/recipe-detail-430.webp 430w, assets/screens/recipe-detail-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The meat stock recipe, with its ingredients, time and level."></div></div></div>
+        <div class="txt"><p class="eyebrow">Recipes</p><h3>Cook for your stage</h3><p>Stocks and soups, vegetable and dairy ferments, each marked with its stage.</p></div>
+      </div>
+      <div class="feat reveal">
+        <div class="shot"><div class="phone" style="--top:#00796B"><div class="isl"></div><div class="scr"><img src="assets/screens/shopping-430.webp" srcset="assets/screens/shopping-430.webp 430w, assets/screens/shopping-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="A shopping list grouped by meat and produce, with two items ticked off."></div></div></div>
+        <div class="txt"><p class="eyebrow">Shopping list</p><h3>Shop with a plan</h3><p>Add what you need and tick it off as you go.</p></div>
+      </div>
+    </div>
+    <div class="more">
+      <div class="mini reveal"><h3>See your patterns</h3><p>Streaks and trends from your own journal, week by week.</p></div>
+      <div class="mini reveal"><h3>Learn the stages</h3><p>Stage-by-stage guides: what to eat, when you're ready to move on, and troubleshooting.</p></div>
+    </div>
   </div>
 </section>
 
-<section class="card" id="android" data-os="android">
-  <p class="mine-tag">Your device</p>
-  <h2>On Android: early access</h2>
-  <p class="sub">The Android app is in early access on Google Play. Three steps, each with your Google account. Use the <b>same</b> account that's signed in to Google Play on your phone.</p>
-  <ol class="steps">
-    <li><a class="btn" href="https://groups.google.com/g/gaps-app-testers">Join the tester group</a><span class="hint">Sign in, then tap “Join group”.</span></li>
-    <li><a class="btn" href="https://play.google.com/apps/testing/com.gapsapp.app">Become a tester</a><span class="hint">Tap “Become a tester”. Works only after step 1.</span></li>
-    <li><a class="btn" href="https://play.google.com/store/apps/details?id=com.gapsapp.app">Install the app</a><span class="hint">Works a few minutes after step 2. Before that, Google Play says “not found”.</span></li>
-  </ol>
-  <ul class="notes">
-    <li>Needs Android 7.0 or newer.</li>
-    <li><b>Please stay opted in for at least two weeks.</b> That's what lets us release the Android app to everyone.</li>
-    <li>The group only gives you access to the test. There's no discussion, members can't see each other, and only the group's managers see email addresses.</li>
-  </ul>
+<section class="alt" id="pricing" aria-labelledby="price-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Pricing on the App Store</p>
+      <h2 id="price-h">Start with 14 days free</h2>
+      <p>The free trial is on the monthly plan.</p>
+    </div>
+    <div class="plans">
+      <div class="plan reveal">
+        <h3>Monthly</h3>
+        <p class="amt">$9.99 <small>/ month</small></p>
+        <ul><li>14-day free trial</li><li>Cancel any time</li></ul>
+      </div>
+      <div class="plan best reveal">
+        <span class="ribbon">Save 50%</span>
+        <h3>Annual</h3>
+        <p class="amt">$59.99 <small>/ year</small></p>
+        <ul><li>Half the price of 12 monthly payments</li><li>No free trial on this plan</li></ul>
+      </div>
+    </div>
+    <p class="fine">Prices in US dollars on the App Store. Subscriptions renew automatically until you cancel; manage or cancel them in your Apple ID settings. Local prices and taxes vary by country, and the App Store shows the final price before you pay.</p>
+  </div>
 </section>
 
-<section class="card" id="browser" data-os="other">
-  <p class="mine-tag">Your device</p>
-  <h2>Any phone or computer</h2>
-  <p class="sub">Use the app in your web browser, right now. Nothing to install.</p>
-  <a class="btn" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
+<section aria-labelledby="trust-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Made for the GAPS community</p>
+      <h2 id="trust-h">Built on Dr. Natasha's protocol</h2>
+    </div>
+    <div class="trust">
+      <div class="card reveal">
+        <h3>From the book</h3>
+        <p>The app follows the GAPS Nutritional Protocol from Dr. Natasha Campbell-McBride's book <i>Gut and Psychology Syndrome</i>: the Introduction Diet stages and Full GAPS, the foods for each stage, and the daily routines.</p>
+        <p style="margin-top:12px"><a href="https://www.drnatasha.com/">Visit Dr. Natasha's website</a></p>
+      </div>
+      <div class="card note reveal">
+        <h3>Diet tracking, not medical advice</h3>
+        <p>Dr. Natasha's GAPS App is a diet-tracking tool. It doesn't diagnose or treat any condition, and it isn't a substitute for advice from a qualified practitioner. Symptom logging is there so you can see how your days line up with what you eat.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="card">
-  <h2>What's inside</h2>
-  <ul class="feat">
-    <li><b>Daily journal:</b> meals, supplements, symptoms, bowel movements and detox, day by day.</li>
-    <li><b>Every food's stage:</b> search a food and see its GAPS stage.</li>
-    <li><b>Recipes for your stage:</b> stocks and soups, vegetable and dairy ferments.</li>
-    <li><b>Your patterns:</b> streaks and trends from your own journal.</li>
-    <li><b>Learn the stages:</b> what to eat, what to expect, common mistakes.</li>
-    <li><b>Shopping list:</b> add what you need and tick it off.</li>
-  </ul>
+<section class="alt" aria-labelledby="faq-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Questions</p>
+      <h2 id="faq-h">Good to know</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What is Dr. Natasha's GAPS App?</summary><p>A diet-tracking app for the GAPS Nutritional Protocol. It keeps your daily GAPS journal, shows each food's stage, offers recipes by stage and turns your journal into streaks and trends.</p></details>
+      <details><summary>Who is it for?</summary><p>Anyone following the GAPS Introduction Diet or Full GAPS, including parents following it with a child or the whole family.</p></details>
+      <details><summary>Is it medical advice?</summary><p>No. It's a diet-tracking tool. It doesn't diagnose or treat anything. Please speak to your own practitioner about medical questions.</p></details>
+      <details><summary>Which devices does it work on?</summary><p>iPhone, from the App Store (coming in the next few days). Android, through early access on Google Play, with the public release to follow. And any phone or computer, in a web browser.</p></details>
+      <details><summary>How do I get the Android app now?</summary><p>Follow the three steps under “On Android” above: join the tester group, become a tester on Google Play, then install. Use the same Google account as on your phone, and please stay opted in for two weeks. That's what unlocks the public Android release.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes: 14 days on the monthly plan on the App Store. The annual plan has no trial.</p></details>
+      <details><summary>Can I use it on more than one device?</summary><p>Yes. Sign in with the same account on your phone and in your browser.</p></details>
+      <details><summary>Is it Dr. Natasha's official app?</summary><p>Yes. It's Dr. Natasha's GAPS App, built around the GAPS Nutritional Protocol and her brand.</p></details>
+    </div>
+  </div>
 </section>
 </main>
 
 <footer>
-  <p>A diet-tracking app for the GAPS Nutritional Protocol. It does not give medical advice.</p>
-  <p>More from Dr. Natasha: <a href="https://www.drnatasha.com/">drnatasha.com</a></p>
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon-192.png" width="48" height="48" alt=""><span>Dr. Natasha's GAPS App</span></a>
+    <p>A diet-tracking app for the GAPS Nutritional Protocol. It does not give medical advice.</p>
+    <p><a href="https://www.drnatasha.com/">drnatasha.com</a> · Share this page: <b>adaptationio.github.io/gaps-app</b></p>
+    <p style="font-size:12.5px">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC.</p>
+  </div>
 </footer>
-</div>
+
 <script>
-// Highlight and lift the visitor's own device. All three choices stay on the page.
 (function(){
+  var d=document.documentElement; d.classList.add("js");
+  // Put the visitor's own device first and point the hero button at it. All options stay visible.
   var ua=navigator.userAgent||"", os="other";
   if(/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1)) os="ios";
   else if(/Android/.test(ua)) os="android";
-  var el=document.querySelector('section[data-os="'+os+'"]');
-  if(!el) return;
-  el.classList.add("mine");
-  var m=el.parentNode; m.insertBefore(el,m.firstChild);
+  var el=document.querySelector('[data-os="'+os+'"]');
+  if(el){
+    el.classList.add("mine");
+    el.parentNode.insertBefore(el,el.parentNode.firstChild);
+    var c=document.getElementById("hero-cta");
+    c.href="#"+el.id;
+    c.textContent=os==="ios"?"Get it on your iPhone":os==="android"?"Get it on your Android":"Get the app";
+  }
+  // Reveal on scroll. Without IntersectionObserver, everything simply shows.
+  var r=document.querySelectorAll(".reveal");
+  if(!("IntersectionObserver" in window)){r.forEach(function(x){x.classList.add("in")});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}})},{rootMargin:"0px 0px -8% 0px"});
+  r.forEach(function(x){io.observe(x)});
 })();
 </script>
 </body>
