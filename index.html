@@ -1,8 +1,9 @@
 <!doctype html>
 <!-- ONE-LINE FLIPS: when the App Store link opens, data-appstore="soon" -> "live".
      When the conference offer code is live in App Store Connect, data-offer="off" -> "on".
-     When the Android early-access steps have been tested end to end, data-android="off" -> "on". -->
-<html lang="en" data-appstore="soon" data-offer="off" data-android="on">
+     When the Android early-access steps have been tested end to end, data-android="off" -> "on".
+     While the public TestFlight link is open (and the App Store is still "soon"), data-testflight="on"; set "off" when the link closes. -->
+<html lang="en" data-appstore="soon" data-offer="off" data-android="on" data-testflight="on">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -122,6 +123,8 @@ html[data-appstore="live"] .when-soon{display:none}
 html:not([data-offer="on"]) .when-offer{display:none}
 html:not([data-android="on"]) .when-android{display:none}
 html[data-android="on"] .when-no-android{display:none}
+html:not([data-testflight="on"]) .when-testflight{display:none}
+.when-testflight{margin:18px 0 20px}
 .offer{background:var(--hero-bg);color:#fff;border-radius:22px;padding:26px 22px;max-width:760px;margin:0 auto 26px;text-align:center}
 .offer .eyebrow{color:#FAF0C8}
 .offer h3{font-size:clamp(28px,6vw,38px);margin:10px 0 12px}
@@ -264,6 +267,16 @@ footer p+p{margin-top:8px}
         </div>
         <div class="when-soon">
           <p class="soon"><b>Coming soon to the App Store.</b> Until then, use it in your browser on your iPhone, and later sign in to the app with the same account.</p>
+          <div class="when-testflight">
+          <p class="sub"><b>Or try the test version now.</b> Two steps on your iPhone:</p>
+          <ol class="steps">
+            <li><a class="btn block" href="https://apps.apple.com/app/testflight/id899247664">Install TestFlight</a><span class="hint">Apple's free app for test versions, from the App Store.</span></li>
+            <li><a class="btn block" href="https://testflight.apple.com/join/yrSQkhsm">Open the test version</a><span class="hint">Tap “Accept”, then “Install”. Works only after step 1.</span></li>
+          </ol>
+          <ul class="notes">
+            <li>A test version can have rough edges. When the App Store version is out, install it from there and sign in with the same account.</li>
+          </ul>
+          </div>
           <a class="btn ghost block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
         </div>
       </article>
