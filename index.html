@@ -1,12 +1,13 @@
 <!doctype html>
 <!-- Launch state (Nov 2026): the app is public on the App Store and Google Play.
-     ONE-LINE FLIP: the WISETRAD conference offer ends Nov 30, 2026. On Dec 1 set data-offer="on" -> "off". -->
+     The WISETRAD conference offer ends Nov 30, 2026. The script turns it off from Dec 1 (end of Nov 30 everywhere);
+     setting data-offer="off" by hand does the same without the script. -->
 <html lang="en" data-offer="on">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dr. Natasha's GAPS App · Your GAPS diet, day by day</title>
-<meta name="description" content="Dr. Natasha's GAPS App: a daily GAPS journal, every food's stage and recipes for your stage. On the App Store and Google Play. Try Premium free for 14 days.">
+<meta name="description" content="Dr. Natasha's GAPS App: a daily GAPS journal, every food's stage and recipes, on the App Store and Google Play. 14-day free trial for new subscribers.">
 <link rel="canonical" href="https://adaptationio.github.io/gaps-app/">
 <meta name="theme-color" content="#007848" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1A14" media="(prefers-color-scheme: dark)">
@@ -14,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dr. Natasha's GAPS App">
 <meta property="og:title" content="Dr. Natasha's GAPS App">
-<meta property="og:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Try Premium free for 14 days.">
+<meta property="og:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Free 14-day Premium trial for new subscribers.">
 <meta property="og:url" content="https://adaptationio.github.io/gaps-app/">
 <meta property="og:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -22,7 +23,7 @@
 <meta property="og:image:alt" content="Dr. Natasha's GAPS App logo with the words: Your GAPS diet, day by day.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dr. Natasha's GAPS App">
-<meta name="twitter:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Try Premium free for 14 days.">
+<meta name="twitter:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Free 14-day Premium trial for new subscribers.">
 <meta name="twitter:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
 <meta name="apple-itunes-app" content="app-id=6760324388">
 <script type="application/ld+json">
@@ -133,7 +134,7 @@ section{padding:56px 0}
 .appstore{display:inline-block;padding:14px 0}  /* Apple: clear space >= 1/4 of the 54px badge height */
 .appstore img{height:54px;width:auto}
 .playstore{display:inline-block;padding:1px 0}  /* Google's file includes clear space; black shape = 54px, same as Apple's */
-.playstore img{height:80px;width:auto;max-width:none;margin:0 -12px}
+.playstore img{height:80px;width:auto;max-width:none;margin:0 -12px}  /* negative margin trims the PNG's built-in clear space: fine for one badge per card, not for a row of badges */
 .soon{background:var(--chip);border-radius:12px;padding:12px 14px;font-size:15.5px;margin-bottom:14px}
 html:not([data-offer="on"]) .when-offer{display:none}
 .offer{background:var(--hero-bg);color:#fff;border-radius:22px;padding:26px 22px;max-width:760px;margin:0 auto 26px;text-align:center}
@@ -271,7 +272,7 @@ footer p+p{margin-top:8px}
     <div class="devices">
       <article class="card" id="iphone" data-os="ios">
         <p class="tag">Your device</p>
-        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="4.2" width="4" height="1.3" rx=".6" fill="currentColor"/></svg>On iPhone</h3>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="4.2" width="4" height="1.3" rx=".6" fill="currentColor"/></svg>On iPhone and iPad</h3>
         <p class="sub">Download it from the App Store, then start your free trial in the app.</p>
         <a class="appstore" href="https://apps.apple.com/app/id6760324388"><img src="assets/app-store-badge.svg" width="160" height="54" alt="Download on the App Store"></a>
       </article>
@@ -303,7 +304,7 @@ footer p+p{margin-top:8px}
     </div>
     <div class="features">
       <div class="feat reveal">
-        <div class="shot"><div class="phone" style="--top:#FFFFFF"><div class="scr"><picture><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The app's daily journal: the day's meals, starting with breakfast, with meat stock, GAPS fats and ferments counted."></picture></div></div></div>
+        <div class="shot"><div class="phone" style="--top:#FFFFFF"><div class="scr"><picture><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The app's daily journal: the day's counts (0 symptoms, 4 GAPS fats, 3 ferments), then the day's meals, starting with breakfast."></picture></div></div></div>
         <div class="txt"><p class="eyebrow">Daily journal</p><h3>Your GAPS day, in one place</h3><p>Log each meal, and keep count of your meat stock, fats and ferments through the day.</p></div>
       </div>
       <div class="feat reveal">
@@ -407,6 +408,8 @@ footer p+p{margin-top:8px}
 
 <script>
 (function(){
+  // The conference offer ends at the end of Nov 30, 2026 in every time zone (UTC-12), whether or not the flag is flipped.
+  if(Date.now()>=Date.UTC(2026,11,1,12))document.documentElement.setAttribute("data-offer","off");
   var d=document.documentElement; d.classList.add("js");
   // Put the visitor's own device first and point the hero button at it. All options stay visible.
   var ua=navigator.userAgent||"", os="other";
@@ -420,14 +423,13 @@ footer p+p{margin-top:8px}
     c.href="#"+el.id;
     c.textContent=os==="ios"?"Get it on your iPhone":os==="android"?"Get it on your Android":"Get the app";
   }
-  // Pass the visitor's campaign tag on to the stores: Google Play reads referrer=, App Store Analytics reads ct=.
+  // Pass the visitor's campaign tag on to Google Play (referrer=). Nothing is added to App Store links: Apple's campaign
+  // links need the provider token (pt=) as well as ct=, and without it nothing is recorded.
   try{
     var q=new URLSearchParams(location.search), u=[];
     ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var v=q.get(k);if(v)u.push(k+"="+encodeURIComponent(v.slice(0,100)));});
     if(u.length){
       document.querySelectorAll('a[href^="https://play.google.com/store/apps/details"]').forEach(function(a){a.href+="&referrer="+encodeURIComponent(u.join("&"));});
-      var ct=[q.get("utm_source"),q.get("utm_content")].filter(Boolean).join("_").replace(/[^A-Za-z0-9_.-]/g,"").slice(0,40);
-      if(ct)document.querySelectorAll('a[href^="https://apps.apple.com/app/id6760324388"]').forEach(function(a){a.href+=(a.href.indexOf("?")<0?"?":"&")+"ct="+ct+"&mt=8";});
     }
   }catch(e){}
   // Reveal on scroll. Without IntersectionObserver, everything simply shows.
