@@ -1,14 +1,13 @@
 <!doctype html>
-<!-- ONE-LINE FLIPS: when the App Store link opens, data-appstore="soon" -> "live".
-     When the conference offer code is live in App Store Connect, data-offer="off" -> "on".
-     When the Android early-access steps have been tested end to end, data-android="off" -> "on".
-     While the public TestFlight link is open (and the App Store is still "soon"), data-testflight="on"; set "off" when the link closes. -->
-<html lang="en" data-appstore="live" data-offer="on" data-android="on" data-testflight="on">
+<!-- Launch state (Nov 2026): the app is public on the App Store and Google Play.
+     The WISETRAD conference offer ends Nov 30, 2026. The script turns it off from Dec 1 (end of Nov 30 everywhere);
+     setting data-offer="off" by hand does the same without the script. -->
+<html lang="en" data-offer="on">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dr. Natasha's GAPS App · Your GAPS diet, day by day</title>
-<meta name="description" content="Dr. Natasha's GAPS App: a daily GAPS journal, every food's stage, recipes for your stage and the patterns in your own journal. On iPhone, Android early access, or in any browser.">
+<meta name="description" content="Dr. Natasha's GAPS App: a daily GAPS journal, every food's stage and recipes, on the App Store and Google Play. 14-day free trial for new subscribers.">
 <link rel="canonical" href="https://adaptationio.github.io/gaps-app/">
 <meta name="theme-color" content="#007848" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0E1A14" media="(prefers-color-scheme: dark)">
@@ -16,7 +15,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Dr. Natasha's GAPS App">
 <meta property="og:title" content="Dr. Natasha's GAPS App">
-<meta property="og:description" content="Your GAPS diet, day by day. On iPhone, Android early access, or in any browser.">
+<meta property="og:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Free 14-day Premium trial for new subscribers.">
 <meta property="og:url" content="https://adaptationio.github.io/gaps-app/">
 <meta property="og:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
 <meta property="og:image:width" content="1200">
@@ -24,8 +23,26 @@
 <meta property="og:image:alt" content="Dr. Natasha's GAPS App logo with the words: Your GAPS diet, day by day.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Dr. Natasha's GAPS App">
-<meta name="twitter:description" content="Your GAPS diet, day by day. On iPhone, Android early access, or in any browser.">
+<meta name="twitter:description" content="Your GAPS diet, day by day. On the App Store and Google Play. Free 14-day Premium trial for new subscribers.">
 <meta name="twitter:image" content="https://adaptationio.github.io/gaps-app/assets/og-image.jpg">
+<meta name="apple-itunes-app" content="app-id=6760324388">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Dr. Natasha's GAPS App",
+  "operatingSystem": "iOS 16.0 or later, Android 7.0 or later",
+  "applicationCategory": "HealthApplication",
+  "description": "A diet-tracking app for the GAPS Nutritional Protocol: a daily journal, every food's stage, recipes for your stage and stage-by-stage guides.",
+  "url": "https://adaptationio.github.io/gaps-app/",
+  "installUrl": [
+    "https://apps.apple.com/app/id6760324388",
+    "https://play.google.com/store/apps/details?id=com.gapsapp.app"
+  ],
+  "publisher": {"@type": "Organization", "name": "Medinform Limited"},
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free to download. GAPS Premium subscription with a 14-day free trial."}
+}
+</script>
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preload" href="assets/kit-serif-bold.woff2" as="font" type="font/woff2" crossorigin>
@@ -93,7 +110,6 @@ h1,h2,h3{font-family:"Kit Serif",Georgia,"Times New Roman",serif;font-weight:700
 .phone .scr::before{content:"";flex:none;height:6.2%;background:var(--top,#fff)}
 .phone .scr picture{flex:1;min-height:0;display:block}
 .phone .scr img{flex:1;min-height:0;width:100%;height:100%;object-fit:cover;object-position:top}
-.phone .isl{position:absolute;z-index:2;top:calc(var(--w)*.055);left:50%;transform:translateX(-50%);width:30%;height:3.1%;background:#000;border-radius:999px}
 .hero-art .p1{--w:min(62vw,270px);left:50%;top:0;transform:translateX(-50%);z-index:3}
 .hero-art .p2,.hero-art .p3{--w:min(46vw,210px);top:16%;z-index:2;opacity:.96}
 .hero-art .p2{left:0;transform:rotate(-7deg)}
@@ -117,14 +133,10 @@ section{padding:56px 0}
 .card .sub{color:var(--muted);font-size:15.5px;margin-bottom:16px}
 .appstore{display:inline-block;padding:14px 0}  /* Apple: clear space >= 1/4 of the 54px badge height */
 .appstore img{height:54px;width:auto}
+.playstore{display:inline-block;padding:1px 0}  /* Google's file includes clear space; black shape = 54px, same as Apple's */
+.playstore img{height:80px;width:auto;max-width:none;margin:0 -12px}  /* negative margin trims the PNG's built-in clear space: fine for one badge per card, not for a row of badges */
 .soon{background:var(--chip);border-radius:12px;padding:12px 14px;font-size:15.5px;margin-bottom:14px}
-html[data-appstore="soon"] .when-live{display:none}
-html[data-appstore="live"] .when-soon{display:none}
 html:not([data-offer="on"]) .when-offer{display:none}
-html:not([data-android="on"]) .when-android{display:none}
-html[data-android="on"] .when-no-android{display:none}
-html:not([data-testflight="on"]) .when-testflight{display:none}
-.when-testflight{margin:18px 0 20px}
 .offer{background:var(--hero-bg);color:#fff;border-radius:22px;padding:26px 22px;max-width:760px;margin:0 auto 26px;text-align:center}
 .offer .eyebrow{color:#FAF0C8}
 .offer h3{font-size:clamp(28px,6vw,38px);margin:10px 0 12px}
@@ -239,12 +251,12 @@ footer p+p{margin-top:8px}
         <a class="btn light" href="#get" id="hero-cta">Get the app</a>
         <a class="btn outline" href="#inside">See what's inside</a>
       </div>
-      <p class="hero-note">On iPhone, Android early access, or in any browser.</p>
+      <p class="hero-note">On iPhone, iPad and Android.</p>
     </div>
     <div class="hero-art" aria-hidden="true">
-      <div class="phone p2" style="--top:#007848"><div class="isl"></div><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
-      <div class="phone p3" style="--top:#77D1F6"><div class="isl"></div><div class="scr"><img src="assets/screens/recipes-430.webp" srcset="assets/screens/recipes-430.webp 430w, assets/screens/recipes-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
-      <div class="phone p1" style="--top:#FFFFFF"><div class="isl"></div><div class="scr"><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="290px" width="430" height="932" alt="" fetchpriority="high"></div></div>
+      <div class="phone p2" style="--top:#007848"><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
+      <div class="phone p3" style="--top:#77D1F6"><div class="scr"><img src="assets/screens/recipes-430.webp" srcset="assets/screens/recipes-430.webp 430w, assets/screens/recipes-860.webp 860w" sizes="220px" width="430" height="932" alt=""></div></div>
+      <div class="phone p1" style="--top:#FFFFFF"><div class="scr"><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="290px" width="430" height="932" alt="" fetchpriority="high"></div></div>
     </div>
   </div>
 </header>
@@ -260,51 +272,24 @@ footer p+p{margin-top:8px}
     <div class="devices">
       <article class="card" id="iphone" data-os="ios">
         <p class="tag">Your device</p>
-        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="4.2" width="4" height="1.3" rx=".6" fill="currentColor"/></svg>On iPhone</h3>
-        <div class="when-live">
-          <p class="sub">Download it from the App Store, then start your free trial in the app.</p>
-          <a class="appstore" href="https://apps.apple.com/app/id6760324388"><img src="assets/app-store-badge.svg" width="160" height="54" alt="Download on the App Store"></a>
-        </div>
-        <div class="when-soon">
-          <p class="soon"><b>Coming soon to the App Store.</b> Until then, use it in your browser on your iPhone, and later sign in to the app with the same account.</p>
-          <div class="when-testflight">
-          <p class="sub"><b>Or try the test version now.</b> Two steps on your iPhone:</p>
-          <ol class="steps">
-            <li><a class="btn block" href="https://apps.apple.com/app/testflight/id899247664">Install TestFlight</a><span class="hint">Apple's free app for test versions, from the App Store.</span></li>
-            <li><a class="btn block" href="https://testflight.apple.com/join/yrSQkhsm">Open the test version</a><span class="hint">Tap “Accept”, then “Install”. Works only after step 1.</span></li>
-          </ol>
-          <ul class="notes">
-            <li>A test version can have rough edges. When the App Store version is out, install it from there and sign in with the same account.</li>
-          </ul>
-          </div>
-          <a class="btn ghost block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
-        </div>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="4.2" width="4" height="1.3" rx=".6" fill="currentColor"/></svg>On iPhone and iPad</h3>
+        <p class="sub">Download it from the App Store, then start your free trial in the app.</p>
+        <a class="appstore" href="https://apps.apple.com/app/id6760324388"><img src="assets/app-store-badge.svg" width="160" height="54" alt="Download on the App Store"></a>
       </article>
 
       <article class="card" id="android" data-os="android">
         <p class="tag">Your device</p>
-        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="4.6" r=".9" fill="currentColor"/></svg>On Android: early access</h3>
-        <p class="sub when-no-android">Android: early access is opening soon. Ask at the booth, or check back here. You can use the app in your browser today.</p>
-        <div class="when-android">
-        <p class="sub">The Android app is in early access on Google Play. Three steps, each with your Google account. Use the <b>same</b> account that's signed in to Google Play on your phone.</p>
-        <ol class="steps">
-          <li><a class="btn block" href="https://groups.google.com/g/gaps-app-testers">Join the tester group</a><span class="hint">Sign in, then tap “Join group”.</span></li>
-          <li><a class="btn block" href="https://play.google.com/apps/testing/com.gapsapp.app">Become a tester</a><span class="hint">Tap “Become a tester”. Works only after step 1.</span></li>
-          <li><a class="btn block" href="https://play.google.com/store/apps/details?id=com.gapsapp.app">Install the app</a><span class="hint">Works only after steps 1 and 2. The app can take up to a couple of hours to appear; until then Google Play says “not found”, so try again a little later.</span></li>
-        </ol>
-        <ul class="notes">
-          <li>Needs Android 7.0 or newer.</li>
-          <li><b>Please stay opted in for at least two weeks.</b> That's what lets us release the Android app to everyone.</li>
-          <li>The group only gives you access to the test. There's no discussion, members can't see each other, and only the group's managers see email addresses.</li>
-        </ul>
-        </div>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="4.6" r=".9" fill="currentColor"/></svg>On Android</h3>
+        <p class="sub">Download it from Google Play, then start your free trial in the app.</p>
+        <a class="playstore" href="https://play.google.com/store/apps/details?id=com.gapsapp.app"><img src="assets/google-play-badge.png" width="207" height="80" alt="Get it on Google Play"></a>
+        <ul class="notes"><li>Needs Android 7.0 or newer.</li></ul>
       </article>
 
       <article class="card" id="browser" data-os="other">
         <p class="tag">Your device</p>
-        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 20.5h8M12 17v3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Any phone or computer</h3>
-        <p class="sub">Use the app in your web browser, right now. Nothing to install.</p>
-        <a class="btn block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Open it in your browser</a>
+        <h3><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4" width="19" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 20.5h8M12 17v3.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>On a computer</h3>
+        <p class="sub">Already a subscriber? Sign in on any computer with the same account.</p>
+        <a class="btn ghost block" href="https://gapsapp-front-end-prod-production.up.railway.app/">Sign in on the web</a>
       </article>
     </div>
   </div>
@@ -319,19 +304,19 @@ footer p+p{margin-top:8px}
     </div>
     <div class="features">
       <div class="feat reveal">
-        <div class="shot"><div class="phone" style="--top:#FFFFFF"><div class="isl"></div><div class="scr"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/screens/journal-dark-430.webp 430w, assets/screens/journal-dark-860.webp 860w" sizes="280px"><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The app's daily journal: today's summary of meat stock, meals, foods, symptoms, GAPS fats and ferments, then the day's meals, starting with breakfast."></picture></div></div></div>
-        <div class="txt"><p class="eyebrow">Daily journal</p><h3>Your GAPS day, in one place</h3><p>Log meals, supplements, symptoms, bowel movements and detox, day by day, and look back whenever you need to.</p></div>
+        <div class="shot"><div class="phone" style="--top:#FFFFFF"><div class="scr"><picture><img src="assets/screens/journal-430.webp" srcset="assets/screens/journal-430.webp 430w, assets/screens/journal-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The app's daily journal: the day's counts (0 symptoms, 4 GAPS fats, 3 ferments), then the day's meals, starting with breakfast."></picture></div></div></div>
+        <div class="txt"><p class="eyebrow">Daily journal</p><h3>Your GAPS day, in one place</h3><p>Log each meal, and keep count of your meat stock, fats and ferments through the day.</p></div>
       </div>
       <div class="feat reveal">
-        <div class="shot"><div class="phone" style="--top:#007848"><div class="isl"></div><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="Food search results for “cooked”, each food labelled with its GAPS stage."></div></div></div>
+        <div class="shot"><div class="phone" style="--top:#007848"><div class="scr"><img src="assets/screens/foods-430.webp" srcset="assets/screens/foods-430.webp 430w, assets/screens/foods-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="Food search results for “cooked”, each food labelled with its GAPS stage."></div></div></div>
         <div class="txt"><p class="eyebrow">Food search</p><h3>Know every food's stage</h3><p>Search a food and see which GAPS stage it belongs to, so you know what fits where you are.</p></div>
       </div>
       <div class="feat reveal">
-        <div class="shot"><div class="phone" style="--top:#EDE6DA"><div class="isl"></div><div class="scr"><img src="assets/screens/recipe-detail-430.webp" srcset="assets/screens/recipe-detail-430.webp 430w, assets/screens/recipe-detail-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The meat stock recipe, with its ingredients, time and level."></div></div></div>
+        <div class="shot"><div class="phone" style="--top:#EDE6DA"><div class="scr"><img src="assets/screens/recipe-detail-430.webp" srcset="assets/screens/recipe-detail-430.webp 430w, assets/screens/recipe-detail-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="The meat stock recipe, with its time, level and the first steps."></div></div></div>
         <div class="txt"><p class="eyebrow">Recipes</p><h3>Cook for your stage</h3><p>Stocks and soups, vegetable and dairy ferments, each marked with its stage.</p></div>
       </div>
       <div class="feat reveal">
-        <div class="shot"><div class="phone" style="--top:#00796B"><div class="isl"></div><div class="scr"><img src="assets/screens/shopping-430.webp" srcset="assets/screens/shopping-430.webp 430w, assets/screens/shopping-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="A shopping list grouped by meat and produce, with two items ticked off."></div></div></div>
+        <div class="shot"><div class="phone" style="--top:#00796B"><div class="scr"><img src="assets/screens/shopping-430.webp" srcset="assets/screens/shopping-430.webp 430w, assets/screens/shopping-860.webp 860w" sizes="280px" width="430" height="932" loading="lazy" alt="A shopping list grouped by meat and produce, with two items ticked off."></div></div></div>
         <div class="txt"><p class="eyebrow">Shopping list</p><h3>Shop with a plan</h3><p>Add what you need and tick it off as you go.</p></div>
       </div>
     </div>
@@ -345,17 +330,17 @@ footer p+p{margin-top:8px}
 <section class="alt" id="pricing" aria-labelledby="price-h">
   <div class="wrap">
     <div class="sec-head">
-      <p class="eyebrow">Pricing on the App Store</p>
+      <p class="eyebrow">GAPS Premium</p>
       <h2 id="price-h">Start with 14 days free</h2>
-      <p>The free trial is on the monthly plan.</p>
+      <p>Both plans start with a 14-day free trial for new subscribers.</p>
     </div>
     <div class="offer when-offer" id="offer">
-      <p class="eyebrow">Wise Traditions offer</p>
+      <p class="eyebrow">Conference offer (iPhone)</p>
       <h3>1 month of GAPS Premium free</h3>
       <p>Your code</p>
       <p class="code">WISETRAD</p>
       <p><a class="btn light" href="https://apps.apple.com/redeem?ctx=offercodes&amp;id=6760324388&amp;code=WISETRAD">Redeem on your iPhone</a></p>
-      <p class="terms">Scan or redeem code WISETRAD for GAPS Premium Monthly in the App Store by Nov 30, 2026, before starting a free trial. For new subscribers, and past subscribers whose subscription has ended. One per Apple ID. Then $9.99/month unless cancelled at least 24 hours before the free month ends. iPhone, iOS 14.2+.</p>
+      <p class="terms">Scan or redeem code WISETRAD for GAPS Premium Monthly in the App Store by Nov 30, 2026, before starting a free trial. For new subscribers, and past subscribers whose subscription has ended. One per Apple ID. Then $9.99/month unless cancelled at least 24 hours before the free month ends. iPhone only.</p>
     </div>
     <div class="plans">
       <div class="plan reveal">
@@ -364,13 +349,12 @@ footer p+p{margin-top:8px}
         <ul><li>14-day free trial</li><li>Cancel any time</li></ul>
       </div>
       <div class="plan best reveal">
-        <span class="ribbon">Save 40%+</span>
-        <h3>Annual</h3>
+        <h3>Yearly</h3>
         <p class="amt">$59.99 <small>/ year</small></p>
-        <ul><li>Over 40% less than 12 monthly payments</li><li>No free trial on this plan</li></ul>
+        <ul><li>14-day free trial</li><li>Costs less than twelve monthly payments</li></ul>
       </div>
     </div>
-    <p class="fine">Prices in US dollars on the App Store. Subscriptions renew automatically until you cancel; manage or cancel them in your Apple ID settings. Local prices and taxes vary by country, and the App Store shows the final price before you pay.</p>
+    <p class="fine">US prices shown. Your store shows your local price before you pay. Subscriptions renew automatically until you cancel in your App Store or Google Play account.</p>
   </div>
 </section>
 
@@ -388,7 +372,7 @@ footer p+p{margin-top:8px}
       </div>
       <div class="card note reveal">
         <h3>Diet tracking, not medical advice</h3>
-        <p>Dr. Natasha's GAPS App is a diet-tracking tool. It doesn't diagnose or treat any condition, and it isn't a substitute for advice from a qualified practitioner. Symptom logging is there so you can see how your days line up with what you eat.</p>
+        <p>Dr. Natasha's GAPS App is a diet-tracking tool. It doesn't diagnose or treat any condition, and it isn't a substitute for advice from a qualified practitioner.</p>
       </div>
     </div>
   </div>
@@ -404,10 +388,9 @@ footer p+p{margin-top:8px}
       <details><summary>What is Dr. Natasha's GAPS App?</summary><p>A diet-tracking app for the GAPS Nutritional Protocol. It keeps your daily GAPS journal, shows each food's stage, offers recipes by stage and turns your journal into streaks and trends.</p></details>
       <details><summary>Who is it for?</summary><p>Anyone following the GAPS Introduction Diet or Full GAPS, including parents following it with a child or the whole family.</p></details>
       <details><summary>Is it medical advice?</summary><p>No. It's a diet-tracking tool. It doesn't diagnose or treat anything. Please speak to your own practitioner about medical questions.</p></details>
-      <details><summary>Which devices does it work on?</summary><p>iPhone, from the App Store (coming soon). Android, through early access, with the public release to follow. And any phone or computer, in a web browser.</p></details>
-      <details><summary>How do I get the Android app now?</summary><p class="when-no-android">Android: early access is opening soon. Ask at the booth, or check back here. Meanwhile, use the app in any browser.</p><p class="when-android">Follow the three steps under “On Android” above: join the tester group, become a tester on Google Play, then install. Use the same Google account as on your phone. If Google Play says “not found” at the install step, wait up to a couple of hours and try again. Please stay opted in for two weeks. That's what unlocks the public Android release.</p></details>
-      <details><summary>Is there a free trial?</summary><p>Yes: 14 days on the monthly plan on the App Store. The annual plan has no trial.</p></details>
-      <details><summary>Can I use it on more than one device?</summary><p>Yes. Sign in with the same account on your phone and in your browser.</p></details>
+      <details><summary>Which devices does it work on?</summary><p>iPhone and iPad, from the App Store. Android phones and tablets, from Google Play. Subscribers can also sign in on a computer.</p></details>
+      <details><summary>Is there a free trial?</summary><p>Yes. Both plans start with a 14-day free trial for new subscribers. You can also look around the app before you subscribe.</p></details>
+      <details><summary>Can I use it on more than one device?</summary><p>Yes. Sign in with the same account on your phone, your tablet or a computer.</p></details>
       <details><summary>Is it Dr. Natasha's official app?</summary><p>Yes. It's Dr. Natasha's GAPS App, built around the GAPS Nutritional Protocol and her brand.</p></details>
     </div>
   </div>
@@ -418,13 +401,15 @@ footer p+p{margin-top:8px}
   <div class="wrap">
     <a class="brand" href="./"><img src="assets/icon-192.png" width="48" height="48" alt=""><span>Dr. Natasha's GAPS App</span></a>
     <p>A diet-tracking app for the GAPS Nutritional Protocol. It does not give medical advice.</p>
-    <p><a href="https://www.drnatasha.com/">drnatasha.com</a> · Share this page: <b>adaptationio.github.io/gaps-app</b></p>
-    <p style="font-size:12.5px">Apple and the Apple logo are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play is a trademark of Google LLC.</p>
+    <p><a href="https://www.drnatasha.com/">drnatasha.com</a> · <a href="https://gapsapp-front-end-prod-production.up.railway.app/privacy-policy.html">Privacy policy</a> · Share this page: <b>adaptationio.github.io/gaps-app</b></p>
+    <p style="font-size:12.5px">Apple, the Apple logo, iPhone and iPad are trademarks of Apple Inc., registered in the U.S. and other countries and regions. App Store is a service mark of Apple Inc. Google Play and the Google Play logo are trademarks of Google LLC.</p>
   </div>
 </footer>
 
 <script>
 (function(){
+  // The conference offer ends at the end of Nov 30, 2026 in every time zone (UTC-12), whether or not the flag is flipped.
+  if(Date.now()>=Date.UTC(2026,11,1,12))document.documentElement.setAttribute("data-offer","off");
   var d=document.documentElement; d.classList.add("js");
   // Put the visitor's own device first and point the hero button at it. All options stay visible.
   var ua=navigator.userAgent||"", os="other";
@@ -438,6 +423,15 @@ footer p+p{margin-top:8px}
     c.href="#"+el.id;
     c.textContent=os==="ios"?"Get it on your iPhone":os==="android"?"Get it on your Android":"Get the app";
   }
+  // Pass the visitor's campaign tag on to Google Play (referrer=). Nothing is added to App Store links: Apple's campaign
+  // links need the provider token (pt=) as well as ct=, and without it nothing is recorded.
+  try{
+    var q=new URLSearchParams(location.search), u=[];
+    ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){var v=q.get(k);if(v)u.push(k+"="+encodeURIComponent(v.slice(0,100)));});
+    if(u.length){
+      document.querySelectorAll('a[href^="https://play.google.com/store/apps/details"]').forEach(function(a){a.href+="&referrer="+encodeURIComponent(u.join("&"));});
+    }
+  }catch(e){}
   // Reveal on scroll. Without IntersectionObserver, everything simply shows.
   var r=document.querySelectorAll(".reveal");
   if(!("IntersectionObserver" in window)){r.forEach(function(x){x.classList.add("in")});return;}
